@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-com-two',
@@ -17,9 +18,16 @@ export class ComTwoComponent implements OnInit {
    * */
   @Output('reset2') reset = new EventEmitter<void>();
 
+
+  constructor(public service: SharedService) {
+  }
   ngOnInit() { }
 
   onClickReset() {
     this.reset.emit();
+  }
+
+  onClickLogout() {
+    this.service.logout();
   }
 }

@@ -1,5 +1,5 @@
 <div>
-  <app-com-one
+  <app-com-one #com1
     (change)="onChange1($event)"
     [count]="version"></app-com-one>
   <hr>
@@ -30,7 +30,15 @@
 </div>
 
 <div>{{getSomething()}}</div>
+<br>
+<div>
+  <b>
+    LoginStatus: {{service.getState()}}
+  </b>
+
+</div>
 
 <hr>
 
 <button (click)="onClick()">Click</button>
+<button (click)="onClickViewChild()">ViewChild</button>

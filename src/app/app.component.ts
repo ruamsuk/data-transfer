@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ComOneComponent } from './components/com-one/com-one.component';
+import { SharedService } from './services/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,10 @@ export class AppComponent {
   play = {name: 'Some one', password: '123456'};
   time1 = 0;
 
+  @ViewChild('com1') com1: ComOneComponent;
+
+  constructor(public service: SharedService) {
+  }
 
   getSomething() {
     return 'I am a poor boy';
@@ -32,5 +38,9 @@ export class AppComponent {
 
   onResetVersion() {
     this.version = 0;
+  }
+
+  onClickViewChild() {
+    this.com1.count = 10;
   }
 }
